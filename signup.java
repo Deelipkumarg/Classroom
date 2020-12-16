@@ -14,6 +14,7 @@ public class signup {
 		// set property to launch chrome
 		System.setProperty("webdriver.chrome.driver", "/home/deelip/Downloads/chromedriver_linux64 (1)/chromedriver");
 		WebDriver	wd = new ChromeDriver();
+		String Email = "deelip6@mailinator.com"; 
 		
 		// pageload time
 		 wd.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
@@ -51,7 +52,7 @@ public class signup {
 			//signup with email id
 			Thread.sleep(1000);
 			wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[3]/div[2]/form[1]/input[1]")).sendKeys("deelip one");
-			wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[3]/div[2]/form[1]/input[2]")).sendKeys("deelip2@mailinator.com");
+			wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[3]/div[2]/form[1]/input[2]")).sendKeys(Email);
 			wd.findElement(By.xpath("//*[text()='NEXT']")).click();
 			
 			
@@ -67,7 +68,7 @@ public class signup {
 			 // finding otp
 			 wd.get("https://www.mailinator.com/");
 			 Thread.sleep(5000);
-			 wd.findElement(By.xpath("//input[@id='addOverlay']")).sendKeys("deelip2");
+			 wd.findElement(By.xpath("//input[@id='addOverlay']")).sendKeys(Email);
 			 Thread.sleep(1000);
 			 wd.findElement(By.xpath("//button[@id='go-to-public']")).click();
 			 Thread.sleep(3000);
@@ -97,7 +98,27 @@ public class signup {
 				wd.findElement(By.xpath("//button[contains(text(),'GET STARTED')]")).click();
 				
 				Thread.sleep(3000);
+				String title = wd.getTitle();
+				System.out.println(title);
+				String textaftersignup = wd.findElement(By.xpath("//*[text()='classroom']")).getText();
+				System.out.println(textaftersignup);
+				System.out.println("Successfully Signup");
+				
+				//add classroom
+				wd.findElement(By.xpath("//p[contains(text(),'add classroom')]")).click();
+				Thread.sleep(2000);
+				wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys("demo1");
+				wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/input[1]")).sendKeys("b1");
+				
+				wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/*[1]")).click();
+		    
+				//Click on library 
+				wd.findElement(By.xpath("//p[contains(text(),'library')]")).click();
+				Thread.sleep(2000);
+				
 				System.out.println("Pass");
+				
+				wd.quit();
 
 			
 		} catch (Exception e) {

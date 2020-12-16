@@ -75,7 +75,6 @@ public class signup {
 			 wd.findElement(By.linkText("Got it!")).click();
 			 Thread.sleep(5000);
 			 
-			                                           //html[1]/body[1]/div[3]/div[1]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]
 			wd.findElement(By.xpath("//a[contains(text(),'Your Link OTP is')]")).click();
 //			System.out.println(otpclick); 
 			Thread.sleep(3000);
@@ -86,11 +85,6 @@ public class signup {
 			 
 				wd.switchTo().window(parentWindowHandle);
 				Thread.sleep(3000);
-//				wd.findElement(By.cssSelector("css=input[type='text']")).click();
-				Thread.sleep(1000);
-
-//				wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[2]/div[2]/form[1]/input[1]")).click();
-				Thread.sleep(1000);
 
 	            wd.findElement(By.xpath("//body/div[@id='root']/div[1]/div[1]/div[2]/div[3]/div[3]/form[1]/input[1]")).sendKeys(otp);
 
